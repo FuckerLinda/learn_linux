@@ -1,0 +1,7 @@
+1标准输出重定向（覆盖）.png
+2标准输出重定向（追加）.png
+3标准输出重定向（追加2）、标准错误重定向.png
+4sort.png
+ls.txt
+myredirect
+myredirect.c
