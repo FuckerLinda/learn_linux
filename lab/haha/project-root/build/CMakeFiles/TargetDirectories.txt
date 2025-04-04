@@ -1,0 +1,4 @@
+/home/parallels/Desktop/lab/haha/project-root/build/CMakeFiles/simple_gui.dir
+/home/parallels/Desktop/lab/haha/project-root/build/CMakeFiles/edit_cache.dir
+/home/parallels/Desktop/lab/haha/project-root/build/CMakeFiles/rebuild_cache.dir
+/home/parallels/Desktop/lab/haha/project-root/build/CMakeFiles/simple_gui_autogen.dir
