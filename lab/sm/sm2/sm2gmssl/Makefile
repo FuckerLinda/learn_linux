@@ -13,6 +13,7 @@ LDFLAGS = -L $(GMSSL_LIB) -lgmssl
 
 # 可执行文件名称  ·
 TARGET = sm2gmssl  
+
 # 源文件  
 SRCS = sm2gmssl.c  
 
