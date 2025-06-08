@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>File Client</string>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="selectButton">
+      <property name="text">
+       <string>Select File</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="fileLabel">
+      <property name="text">
+       <string>No file selected</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sendButton">
+      <property name="text">
+       <string>Send File</string>
+      </property>
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

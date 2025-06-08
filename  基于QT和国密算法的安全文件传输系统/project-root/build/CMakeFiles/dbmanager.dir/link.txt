@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdbmanager.a CMakeFiles/dbmanager.dir/dbmanager_autogen/mocs_compilation.cpp.o CMakeFiles/dbmanager.dir/src/database/dbmanager.cpp.o
+/usr/bin/ranlib libdbmanager.a

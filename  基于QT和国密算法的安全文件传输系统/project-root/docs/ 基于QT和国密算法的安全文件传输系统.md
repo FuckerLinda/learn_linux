@@ -1,3 +1,5 @@
+[TOC]
+
 # 基于QT和国密算法的安全文件传输系统
 
 ## 1. 功能和代码链接
@@ -90,7 +92,9 @@
 
 ## 1.4 代码链接
 
-**GitHub 仓库地址**：https://github.com/FuckerLinda/learn_linux/tree/main/lab/基于QT和国密算法的安全文件传输系统
+**GitHub 仓库地址**：https://github.com/FuckerLinda/learn_linux/tree/main/%20%E5%9F%BA%E4%BA%8EQT%E5%92%8C%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%B3%BB%E7%BB%9F
+
+[或者点这里](https://github.com/FuckerLinda/learn_linux/tree/main/%20%E5%9F%BA%E4%BA%8EQT%E5%92%8C%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%B3%BB%E7%BB%9F)
 
 ## 2. 密码技术与安全功能实现
 
