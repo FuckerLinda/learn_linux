@@ -53,8 +53,8 @@ add_executable(server
 )
 target_link_libraries(server PRIVATE
         Qt6::Network
-Qt6::Core  # 确保包含 Core 模块
-dbmanager  # 添加数据库管理器库
+        Qt6::Core  # 确保包含 Core 模块
+        dbmanager  # 添加数据库管理器库
 )
 
 

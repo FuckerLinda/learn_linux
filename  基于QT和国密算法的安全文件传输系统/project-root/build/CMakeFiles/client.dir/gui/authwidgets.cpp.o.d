@@ -1,7 +1,7 @@
 CMakeFiles/client.dir/gui/authwidgets.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.h \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \

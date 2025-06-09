@@ -1,7 +1,7 @@
 CMakeFiles/client.dir/src/database/dbmanager.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobjectdefs.h \

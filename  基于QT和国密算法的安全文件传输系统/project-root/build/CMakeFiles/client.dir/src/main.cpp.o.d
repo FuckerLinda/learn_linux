@@ -1,5 +1,5 @@
 CMakeFiles/client.dir/src/main.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/src/main.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/src/main.cpp \
  /usr/include/stdc-predef.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qapplication.h \
@@ -322,7 +322,7 @@ CMakeFiles/client.dir/src/main.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qlocale.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qvariant.h \
  /usr/include/aarch64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
- /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.h \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -377,7 +377,7 @@ CMakeFiles/client.dir/src/main.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QStackedWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qstackedwidget.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtSql/QSqlDatabase \

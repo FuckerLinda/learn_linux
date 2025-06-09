@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/haha6/project-root
+CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/jiami/project-root
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/haha6/project-root/build
+CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/jiami/project-root/build
 
 # Utility rule file for server_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/server_autogen.dir/compiler_depend.make
 include CMakeFiles/server_autogen.dir/progress.make
 
 CMakeFiles/server_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target server"
-	/usr/bin/cmake -E cmake_autogen /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/server_autogen.dir/AutogenInfo.json ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target server"
+	/usr/bin/cmake -E cmake_autogen /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/server_autogen.dir/AutogenInfo.json ""
 
 server_autogen: CMakeFiles/server_autogen
 server_autogen: CMakeFiles/server_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/server_autogen.dir/clean:
 .PHONY : CMakeFiles/server_autogen.dir/clean
 
 CMakeFiles/server_autogen.dir/depend:
-	cd /home/parallels/Desktop/lab/haha6/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/server_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/parallels/Desktop/lab/jiami/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/server_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/server_autogen.dir/depend
 

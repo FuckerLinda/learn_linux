@@ -1,7 +1,7 @@
 CMakeFiles/client.dir/gui/mainwindow.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.h \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -366,7 +366,7 @@ CMakeFiles/client.dir/gui/mainwindow.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QStackedWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qstackedwidget.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtSql/QSqlDatabase \
@@ -426,7 +426,7 @@ CMakeFiles/client.dir/gui/mainwindow.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
- /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.h \
+ /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QLineEdit \
@@ -444,8 +444,10 @@ CMakeFiles/client.dir/gui/mainwindow.cpp.o: \
  /usr/include/c++/11/bits/unique_lock.h \
  /usr/include/c++/11/condition_variable \
  /usr/include/c++/11/bits/atomic_futex.h \
- /usr/include/c++/11/bits/std_thread.h /usr/include/openssl/bn.h \
- /usr/include/openssl/macros.h \
+ /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/aarch64-linux-gnu/qt6/QtCore/QFileInfo \
+ /usr/include/aarch64-linux-gnu/qt6/QtCore/qfileinfo.h \
+ /usr/include/openssl/bn.h /usr/include/openssl/macros.h \
  /usr/include/aarch64-linux-gnu/openssl/opensslconf.h \
  /usr/include/aarch64-linux-gnu/openssl/configuration.h \
  /usr/include/openssl/opensslv.h /usr/include/openssl/e_os2.h \

@@ -1,8 +1,8 @@
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/dbmanager.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/client.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/server.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/edit_cache.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/rebuild_cache.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/dbmanager_autogen.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/client_autogen.dir
-/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/server_autogen.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/dbmanager.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/client.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/server.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/edit_cache.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/rebuild_cache.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/dbmanager_autogen.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/client_autogen.dir
+/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/server_autogen.dir

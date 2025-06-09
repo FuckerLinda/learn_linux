@@ -1,7 +1,7 @@
 CMakeFiles/dbmanager.dir/dbmanager_autogen/mocs_compilation.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/mocs_compilation.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/M7KQ2GL7XF/moc_dbmanager.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/M7KQ2GL7XF/moc_dbmanager.cpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -117,7 +117,7 @@ CMakeFiles/dbmanager.dir/dbmanager_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/M7KQ2GL7XF/../../../src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/M7KQ2GL7XF/../../../src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobjectdefs.h \

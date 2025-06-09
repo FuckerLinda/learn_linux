@@ -1,5 +1,5 @@
-/home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/moc_authwidgets.cpp: /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.h \
-  /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/moc_predefs.h \
+/home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/moc_authwidgets.cpp: /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.h \
+  /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/moc_predefs.h \
   /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
   /usr/include/aarch64-linux-gnu/asm/errno.h \
   /usr/include/aarch64-linux-gnu/asm/unistd.h \

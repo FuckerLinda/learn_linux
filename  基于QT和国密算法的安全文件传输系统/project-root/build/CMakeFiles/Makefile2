@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/haha6/project-root
+CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/jiami/project-root
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/haha6/project-root/build
+CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/jiami/project-root/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -88,14 +88,14 @@ clean: CMakeFiles/server_autogen.dir/clean
 CMakeFiles/dbmanager.dir/all: CMakeFiles/dbmanager_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbmanager.dir/build.make CMakeFiles/dbmanager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbmanager.dir/build.make CMakeFiles/dbmanager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=8,9,10 "Built target dbmanager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=8,9,10 "Built target dbmanager"
 .PHONY : CMakeFiles/dbmanager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dbmanager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dbmanager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/dbmanager.dir/rule
 
 # Convenience name for target.
@@ -114,14 +114,14 @@ CMakeFiles/dbmanager.dir/clean:
 CMakeFiles/client.dir/all: CMakeFiles/client_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target client"
 .PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/client.dir/rule
 
 # Convenience name for target.
@@ -141,14 +141,14 @@ CMakeFiles/server.dir/all: CMakeFiles/dbmanager.dir/all
 CMakeFiles/server.dir/all: CMakeFiles/server_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=12,13,14,15 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=12,13,14,15 "Built target server"
 .PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
@@ -167,14 +167,14 @@ CMakeFiles/server.dir/clean:
 CMakeFiles/dbmanager_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbmanager_autogen.dir/build.make CMakeFiles/dbmanager_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbmanager_autogen.dir/build.make CMakeFiles/dbmanager_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=11 "Built target dbmanager_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=11 "Built target dbmanager_autogen"
 .PHONY : CMakeFiles/dbmanager_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dbmanager_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dbmanager_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/dbmanager_autogen.dir/rule
 
 # Convenience name for target.
@@ -193,14 +193,14 @@ CMakeFiles/dbmanager_autogen.dir/clean:
 CMakeFiles/client_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen.dir/build.make CMakeFiles/client_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen.dir/build.make CMakeFiles/client_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=7 "Built target client_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=7 "Built target client_autogen"
 .PHONY : CMakeFiles/client_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/client_autogen.dir/rule
 
 # Convenience name for target.
@@ -219,14 +219,14 @@ CMakeFiles/client_autogen.dir/clean:
 CMakeFiles/server_autogen.dir/all: CMakeFiles/dbmanager.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_autogen.dir/build.make CMakeFiles/server_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_autogen.dir/build.make CMakeFiles/server_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=16 "Built target server_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=16 "Built target server_autogen"
 .PHONY : CMakeFiles/server_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles 0
 .PHONY : CMakeFiles/server_autogen.dir/rule
 
 # Convenience name for target.

@@ -1,5 +1,5 @@
-/home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/M7KQ2GL7XF/moc_dbmanager.cpp: /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
-  /home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/moc_predefs.h \
+/home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/M7KQ2GL7XF/moc_dbmanager.cpp: /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
+  /home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/moc_predefs.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/sm3.h \
   /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
   /usr/include/aarch64-linux-gnu/asm/errno.h \

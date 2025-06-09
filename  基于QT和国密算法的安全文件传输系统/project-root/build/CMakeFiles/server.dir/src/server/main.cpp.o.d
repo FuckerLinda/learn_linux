@@ -1,7 +1,7 @@
 CMakeFiles/server.dir/src/server/main.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/src/server/main.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/src/server/main.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobjectdefs.h \
@@ -375,7 +375,7 @@ CMakeFiles/server.dir/src/server/main.cpp.o: \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/sm4.h \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/rand.h \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/error.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QTextStream \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qtextstream.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/include/main.moc
+ /home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/include/main.moc

@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/mocs_compilation.cpp" "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o.d"
-  "/home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.cpp" "CMakeFiles/client.dir/gui/authwidgets.cpp.o" "gcc" "CMakeFiles/client.dir/gui/authwidgets.cpp.o.d"
-  "/home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.cpp" "CMakeFiles/client.dir/gui/mainwindow.cpp.o" "gcc" "CMakeFiles/client.dir/gui/mainwindow.cpp.o.d"
-  "/home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp" "CMakeFiles/client.dir/src/database/dbmanager.cpp.o" "gcc" "CMakeFiles/client.dir/src/database/dbmanager.cpp.o.d"
-  "/home/parallels/Desktop/lab/haha6/project-root/src/main.cpp" "CMakeFiles/client.dir/src/main.cpp.o" "gcc" "CMakeFiles/client.dir/src/main.cpp.o.d"
+  "/home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/mocs_compilation.cpp" "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o.d"
+  "/home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.cpp" "CMakeFiles/client.dir/gui/authwidgets.cpp.o" "gcc" "CMakeFiles/client.dir/gui/authwidgets.cpp.o.d"
+  "/home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.cpp" "CMakeFiles/client.dir/gui/mainwindow.cpp.o" "gcc" "CMakeFiles/client.dir/gui/mainwindow.cpp.o.d"
+  "/home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp" "CMakeFiles/client.dir/src/database/dbmanager.cpp.o" "gcc" "CMakeFiles/client.dir/src/database/dbmanager.cpp.o.d"
+  "/home/parallels/Desktop/lab/jiami/project-root/src/main.cpp" "CMakeFiles/client.dir/src/main.cpp.o" "gcc" "CMakeFiles/client.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.

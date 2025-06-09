@@ -1,7 +1,7 @@
 CMakeFiles/server.dir/src/server/auditlogger.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QString \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qstring.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qchar.h \

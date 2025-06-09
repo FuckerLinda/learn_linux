@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/haha6/project-root
+CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/jiami/project-root
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/haha6/project-root/build
+CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/jiami/project-root/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/server.dir/depend.make
@@ -72,44 +72,44 @@ include CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o: server_autogen/mocs_compilation.cpp
 CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o -MF CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o -MF CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/mocs_compilation.cpp
 
 CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/mocs_compilation.cpp > CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/mocs_compilation.cpp > CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/mocs_compilation.cpp -o CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/mocs_compilation.cpp -o CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/server.dir/src/server/main.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/src/server/main.cpp.o: ../src/server/main.cpp
 CMakeFiles/server.dir/src/server/main.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/src/server/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/server/main.cpp.o -MF CMakeFiles/server.dir/src/server/main.cpp.o.d -o CMakeFiles/server.dir/src/server/main.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/src/server/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/src/server/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/server/main.cpp.o -MF CMakeFiles/server.dir/src/server/main.cpp.o.d -o CMakeFiles/server.dir/src/server/main.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/src/server/main.cpp
 
 CMakeFiles/server.dir/src/server/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/server/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/src/server/main.cpp > CMakeFiles/server.dir/src/server/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/src/server/main.cpp > CMakeFiles/server.dir/src/server/main.cpp.i
 
 CMakeFiles/server.dir/src/server/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/server/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/src/server/main.cpp -o CMakeFiles/server.dir/src/server/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/src/server/main.cpp -o CMakeFiles/server.dir/src/server/main.cpp.s
 
 CMakeFiles/server.dir/src/server/auditlogger.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/src/server/auditlogger.cpp.o: ../src/server/auditlogger.cpp
 CMakeFiles/server.dir/src/server/auditlogger.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/src/server/auditlogger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/server/auditlogger.cpp.o -MF CMakeFiles/server.dir/src/server/auditlogger.cpp.o.d -o CMakeFiles/server.dir/src/server/auditlogger.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/src/server/auditlogger.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/server/auditlogger.cpp.o -MF CMakeFiles/server.dir/src/server/auditlogger.cpp.o.d -o CMakeFiles/server.dir/src/server/auditlogger.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.cpp
 
 CMakeFiles/server.dir/src/server/auditlogger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/server/auditlogger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.cpp > CMakeFiles/server.dir/src/server/auditlogger.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.cpp > CMakeFiles/server.dir/src/server/auditlogger.cpp.i
 
 CMakeFiles/server.dir/src/server/auditlogger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/server/auditlogger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.cpp -o CMakeFiles/server.dir/src/server/auditlogger.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.cpp -o CMakeFiles/server.dir/src/server/auditlogger.cpp.s
 
 # Object files for target server
 server_OBJECTS = \
@@ -129,7 +129,7 @@ server: libdbmanager.a
 server: /usr/lib/aarch64-linux-gnu/libQt6Sql.so.6.2.4
 server: /usr/lib/aarch64-linux-gnu/libQt6Core.so.6.2.4
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -141,6 +141,6 @@ CMakeFiles/server.dir/clean:
 .PHONY : CMakeFiles/server.dir/clean
 
 CMakeFiles/server.dir/depend:
-	cd /home/parallels/Desktop/lab/haha6/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/parallels/Desktop/lab/jiami/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/server.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/parallels/Desktop/lab/haha6/project-root
+# Install script for directory: /home/parallels/Desktop/lab/jiami/project-root
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/parallels/Desktop/lab/haha6/project-root/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/parallels/Desktop/lab/jiami/project-root/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

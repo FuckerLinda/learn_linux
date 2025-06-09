@@ -21,18 +21,18 @@ class FileHistoryDialog : public QDialog {
 public:
     explicit FileHistoryDialog(const QString &userUuid, QWidget *parent = nullptr);
     virtual ~FileHistoryDialog();
-    
+
 private slots:
     void onDownloadClicked();
     void onDownloadConnected();
     void onDownloadReadyRead();
     void onDownloadDisconnected();
     void onDownloadError(QAbstractSocket::SocketError error);
-    
+
 private:
     void completeDownload();
     void processEncryptedFileData(const QByteArray& data);
-    
+
 private:
     QListWidget *fileList;
     QString currentUserUuid;
@@ -43,37 +43,39 @@ private:
     QString currentDownloadFileName;
     QProgressBar *downloadProgress;
     bool headerReceived;
-    // Crypto state
     SM4_KEY sm4_dec_key;
     QByteArray iv;
     QString m_receivedHashHex;
+    SM2_KEY m_download_sm2_key; 
 };
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+
 private slots:
     void onSendButtonClicked();
     void onConnected();
     void onErrorOccurred(QAbstractSocket::SocketError error);
     void handleLogin(const QString &user, const QString &pass);
-    void handleRegister(const QString &user, const QString &pass, 
-                       const QString &confirm, const QString &inviteCode);
+    void handleRegister(const QString &user, const QString &pass, const QString &confirm, const QString &inviteCode);
     void showFileTransferPage(const QString &uuid);
     void onBytesWritten(qint64 bytes);
     void onViewHistoryClicked();
-    void onLogoutButtonClicked(); // <-- 新增的槽函数
+    void onLogoutButtonClicked();
+    void onReadyRead();
 
 private:
+    void sendUploadRequest();
     QWidget* createFileTransferPage();
-    void updateUIForPermissions(bool isAdmin); 
-    
+    void updateUIForPermissions(bool isAdmin);
+
     QTcpSocket *socket;
     QString selectedFilePath;
     QPushButton *selectButton;
     QPushButton *sendButton;
-    QPushButton *logoutButton; // <-- 新增的按钮指针
+    QPushButton *logoutButton;
     QLabel *fileLabel;
     QLabel *userInfoLabel;
     QStackedWidget *stackedWidget;
@@ -84,13 +86,14 @@ private:
     QProgressBar *progressBar;
     QString currentUserUuid;
     QPushButton *viewHistoryBtn;
+
     bool m_headerHandlingDone;
-    // Crypto state for uploads
-    SM2_KEY sm2_key;
+    bool m_serverKeyReceived;
+    SM2_KEY m_server_sm2_key;
+
     uint8_t sm4_key[16];
     uint8_t iv[16];
-    QByteArray m_uploadFileHash; // <-- 添加用于暂存哈希的成员
+    QByteArray m_uploadFileHash;
 };
-
 
 #endif // MAINWINDOW_H

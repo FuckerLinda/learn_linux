@@ -1,7 +1,7 @@
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/mocs_compilation.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/moc_authwidgets.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/moc_authwidgets.cpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -117,7 +117,7 @@ CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/../../../gui/authwidgets.h \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/../../../gui/authwidgets.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -350,8 +350,8 @@ CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/moc_mainwindow.cpp \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/../../../gui/mainwindow.h \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/moc_mainwindow.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/../../../gui/mainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
@@ -387,7 +387,7 @@ CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/QStackedWidget \
  /usr/include/aarch64-linux-gnu/qt6/QtWidgets/qstackedwidget.h \
- /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+ /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/aarch64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/aarch64-linux-gnu/qt6/QtSql/QSqlDatabase \
@@ -431,5 +431,5 @@ CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/api.h \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/sm4.h \
  /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/rand.h \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/M7KQ2GL7XF/moc_dbmanager.cpp \
- /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/M7KQ2GL7XF/../../../src/database/dbmanager.h
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/M7KQ2GL7XF/moc_dbmanager.cpp \
+ /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/M7KQ2GL7XF/../../../src/database/dbmanager.h

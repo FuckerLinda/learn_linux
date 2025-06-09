@@ -1,32 +1,13 @@
-2025-06-08 20:29:36 | Server starting up...
-2025-06-08 20:29:36 | Server started successfully. Listening on port 1234.
-2025-06-08 20:29:51 | Thread 281472987385824: Handling connection.
-2025-06-08 20:29:51 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:29:51 | User [33cfe87c-e400-4b92-b98d-f9d5833a22e4] attempting to UPLOAD file '2.txt' (13 bytes).
-2025-06-08 20:29:51 | SUCCESS: File '2.txt' from user [33cfe87c-e400-4b92-b98d-f9d5833a22e4] received. Hash verification PASSED.
-2025-06-08 20:29:51 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
-2025-06-08 20:29:54 | Thread 281472987385824: Handling connection.
-2025-06-08 20:29:54 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:29:54 | User [33cfe87c-e400-4b92-b98d-f9d5833a22e4] attempting to UPLOAD file '2.txt' (13 bytes).
-2025-06-08 20:29:54 | SUCCESS: File '2.txt' from user [33cfe87c-e400-4b92-b98d-f9d5833a22e4] received. Hash verification PASSED.
-2025-06-08 20:29:54 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
-2025-06-08 20:30:14 | Thread 281472987385824: Handling connection.
-2025-06-08 20:30:14 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:30:14 | User [33cfe87c-e400-4b92-b98d-f9d5833a22e4] attempting to UPLOAD file '2.txt' (13 bytes).
-2025-06-08 20:30:14 | SUCCESS: File '2.txt' from user [33cfe87c-e400-4b92-b98d-f9d5833a22e4] received. Hash verification PASSED.
-2025-06-08 20:30:14 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
-2025-06-08 20:30:30 | Thread 281472987385824: Handling connection.
-2025-06-08 20:30:30 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:30:30 | User [33cfe87c-e400-4b92-b98d-f9d5833a22e4] attempting to UPLOAD file '2.c' (1820 bytes).
-2025-06-08 20:30:30 | SUCCESS: File '2.c' from user [33cfe87c-e400-4b92-b98d-f9d5833a22e4] received. Hash verification PASSED.
-2025-06-08 20:30:30 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
-2025-06-08 20:30:48 | Thread 281472987385824: Handling connection.
-2025-06-08 20:30:48 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:30:48 | User [33cfe87c-e400-4b92-b98d-f9d5833a22e4] attempting to DOWNLOAD file '2.txt'.
-2025-06-08 20:30:48 | SUCCESS: File '2.txt' sent to user [33cfe87c-e400-4b92-b98d-f9d5833a22e4].
-2025-06-08 20:30:49 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
-2025-06-08 20:31:18 | Thread 281472987385824: Handling connection.
-2025-06-08 20:31:18 | Connection from ::ffff:127.0.0.1 assigned to Thread 281472987385824.
-2025-06-08 20:31:18 | User [885098cb-f984-4e24-b9f4-ae6186201d1c] attempting to DOWNLOAD file '2.c'.
-2025-06-08 20:31:18 | SUCCESS: File '2.c' sent to user [885098cb-f984-4e24-b9f4-ae6186201d1c].
-2025-06-08 20:31:19 | Connection from ::ffff:127.0.0.1 closed on Thread 281472987385824.
+2025-06-10 01:24:23 | Server starting up...
+2025-06-10 01:24:37 | Thread 281473310937056: Handling connection.
+2025-06-10 01:24:37 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473310937056.
+2025-06-10 01:24:37 | Sent public key to client ::ffff:127.0.0.1
+2025-06-10 01:24:37 | User [75d8a2cb-61f4-4708-8e89-6439dddd0707] attempting to UPLOAD file '2.txt' (13 bytes).
+2025-06-10 01:24:37 | SUCCESS: File '2.txt' from user [75d8a2cb-61f4-4708-8e89-6439dddd0707] received. Hash verification PASSED.
+2025-06-10 01:24:37 | Connection from ::ffff:127.0.0.1 closed on Thread 281473310937056.
+2025-06-10 01:24:48 | Thread 281473310937056: Handling connection.
+2025-06-10 01:24:48 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473310937056.
+2025-06-10 01:24:48 | Sent public key to client ::ffff:127.0.0.1
+2025-06-10 01:24:48 | User [75d8a2cb-61f4-4708-8e89-6439dddd0707] attempting to DOWNLOAD file '2.txt'.
+2025-06-10 01:24:48 | SUCCESS: File '2.txt' sent to user [75d8a2cb-61f4-4708-8e89-6439dddd0707].
+2025-06-10 01:24:50 | Connection from ::ffff:127.0.0.1 closed on Thread 281473310937056.

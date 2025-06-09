@@ -1,7 +1,7 @@
-/home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/include/main.moc: /home/parallels/Desktop/lab/haha6/project-root/src/server/main.cpp \
-  /home/parallels/Desktop/lab/haha6/project-root/build/server_autogen/moc_predefs.h \
-  /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
-  /home/parallels/Desktop/lab/haha6/project-root/src/server/auditlogger.h \
+/home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/include/main.moc: /home/parallels/Desktop/lab/jiami/project-root/src/server/main.cpp \
+  /home/parallels/Desktop/lab/jiami/project-root/build/server_autogen/moc_predefs.h \
+  /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
+  /home/parallels/Desktop/lab/jiami/project-root/src/server/auditlogger.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/api.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/error.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/rand.h \

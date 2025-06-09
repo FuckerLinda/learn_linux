@@ -1,6 +1,6 @@
-/home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/DMHXEJ42XS/moc_mainwindow.cpp: /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.h \
-  /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/moc_predefs.h \
-  /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h \
+/home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/DMHXEJ42XS/moc_mainwindow.cpp: /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.h \
+  /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/moc_predefs.h \
+  /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/api.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/rand.h \
   /home/parallels/GmSSL-3.1.1-Linux/include/gmssl/sm2.h \

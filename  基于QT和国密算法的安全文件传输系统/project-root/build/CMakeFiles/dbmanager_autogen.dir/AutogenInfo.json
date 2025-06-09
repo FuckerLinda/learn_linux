@@ -1,15 +1,15 @@
 {
-	"BUILD_DIR" : "/home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen",
-	"CMAKE_BINARY_DIR" : "/home/parallels/Desktop/lab/haha6/project-root/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/parallels/Desktop/lab/haha6/project-root/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/parallels/Desktop/lab/haha6/project-root",
+	"BUILD_DIR" : "/home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen",
+	"CMAKE_BINARY_DIR" : "/home/parallels/Desktop/lab/jiami/project-root/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/parallels/Desktop/lab/jiami/project-root/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/parallels/Desktop/lab/jiami/project-root",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/home/parallels/Desktop/lab/haha6/project-root/CMakeLists.txt",
+		"/home/parallels/Desktop/lab/jiami/project-root/CMakeLists.txt",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in",
-		"/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/3.22.1/CMakeSystem.cmake",
+		"/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/3.22.1/CMakeSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeUnixFindMake.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake",
@@ -58,7 +58,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in",
-		"/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
+		"/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/Platform/Linux-Determine-CXX.cmake",
@@ -104,7 +104,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in",
-		"/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
+		"/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake",
@@ -129,7 +129,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake",
 		"/usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in",
-		"/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
+		"/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake",
@@ -148,7 +148,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake",
 		"/usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in",
-		"/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
+		"/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
 		"/usr/lib/aarch64-linux-gnu/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"/usr/lib/aarch64-linux-gnu/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"/usr/lib/aarch64-linux-gnu/cmake/Qt6/Qt6Config.cmake",
@@ -469,21 +469,21 @@
 		"/usr/lib/aarch64-linux-gnu/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake",
 		"/usr/lib/aarch64-linux-gnu/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "/home/parallels/Desktop/lab/haha6/project-root",
+	"CMAKE_SOURCE_DIR" : "/home/parallels/Desktop/lab/jiami/project-root",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"/home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.h",
+			"/home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.h",
 			"Mu",
 			"M7KQ2GL7XF/moc_dbmanager.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_NO_DEBUG", "QT_SQL_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -495,9 +495,9 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/parallels/GmSSL-3.1.1-Linux/include",
-		"/home/parallels/Desktop/lab/haha6/project-root/src/database",
-		"/home/parallels/Desktop/lab/haha6/project-root",
-		"/home/parallels/Desktop/lab/haha6/project-root/gui",
+		"/home/parallels/Desktop/lab/jiami/project-root/src/database",
+		"/home/parallels/Desktop/lab/jiami/project-root",
+		"/home/parallels/Desktop/lab/jiami/project-root/gui",
 		"/usr/include/aarch64-linux-gnu/qt6/QtCore",
 		"/usr/include/aarch64-linux-gnu/qt6",
 		"/usr/lib/aarch64-linux-gnu/qt6/mkspecs/linux-g++",
@@ -521,21 +521,21 @@
 		"-c",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/parallels/Desktop/lab/haha6/project-root/build/dbmanager_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/parallels/Desktop/lab/jiami/project-root/build/dbmanager_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 1,
-	"PARSE_CACHE_FILE" : "/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/dbmanager_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/dbmanager_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt6/libexec/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 2,
-	"SETTINGS_FILE" : "/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/dbmanager_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/dbmanager_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp",
+			"/home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp",
 			"Mu",
 			null
 		]

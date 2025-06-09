@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/haha6/project-root
+CMAKE_SOURCE_DIR = /home/parallels/Desktop/lab/jiami/project-root
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/haha6/project-root/build
+CMAKE_BINARY_DIR = /home/parallels/Desktop/lab/jiami/project-root/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/client.dir/depend.make
@@ -72,72 +72,72 @@ include CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: client_autogen/mocs_compilation.cpp
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o -MF CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o -MF CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/mocs_compilation.cpp
 
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/mocs_compilation.cpp > CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/mocs_compilation.cpp > CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/build/client_autogen/mocs_compilation.cpp -o CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/build/client_autogen/mocs_compilation.cpp -o CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/client.dir/src/main.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/client.dir/src/main.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/main.cpp.o -MF CMakeFiles/client.dir/src/main.cpp.o.d -o CMakeFiles/client.dir/src/main.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/main.cpp.o -MF CMakeFiles/client.dir/src/main.cpp.o.d -o CMakeFiles/client.dir/src/main.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/src/main.cpp
 
 CMakeFiles/client.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/src/main.cpp > CMakeFiles/client.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/src/main.cpp > CMakeFiles/client.dir/src/main.cpp.i
 
 CMakeFiles/client.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/src/main.cpp -o CMakeFiles/client.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/src/main.cpp -o CMakeFiles/client.dir/src/main.cpp.s
 
 CMakeFiles/client.dir/gui/authwidgets.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/gui/authwidgets.cpp.o: ../gui/authwidgets.cpp
 CMakeFiles/client.dir/gui/authwidgets.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/gui/authwidgets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/gui/authwidgets.cpp.o -MF CMakeFiles/client.dir/gui/authwidgets.cpp.o.d -o CMakeFiles/client.dir/gui/authwidgets.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/gui/authwidgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/gui/authwidgets.cpp.o -MF CMakeFiles/client.dir/gui/authwidgets.cpp.o.d -o CMakeFiles/client.dir/gui/authwidgets.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.cpp
 
 CMakeFiles/client.dir/gui/authwidgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/gui/authwidgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.cpp > CMakeFiles/client.dir/gui/authwidgets.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.cpp > CMakeFiles/client.dir/gui/authwidgets.cpp.i
 
 CMakeFiles/client.dir/gui/authwidgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/gui/authwidgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/gui/authwidgets.cpp -o CMakeFiles/client.dir/gui/authwidgets.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/gui/authwidgets.cpp -o CMakeFiles/client.dir/gui/authwidgets.cpp.s
 
 CMakeFiles/client.dir/src/database/dbmanager.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/database/dbmanager.cpp.o: ../src/database/dbmanager.cpp
 CMakeFiles/client.dir/src/database/dbmanager.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/src/database/dbmanager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/database/dbmanager.cpp.o -MF CMakeFiles/client.dir/src/database/dbmanager.cpp.o.d -o CMakeFiles/client.dir/src/database/dbmanager.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/src/database/dbmanager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/database/dbmanager.cpp.o -MF CMakeFiles/client.dir/src/database/dbmanager.cpp.o.d -o CMakeFiles/client.dir/src/database/dbmanager.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp
 
 CMakeFiles/client.dir/src/database/dbmanager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/database/dbmanager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp > CMakeFiles/client.dir/src/database/dbmanager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp > CMakeFiles/client.dir/src/database/dbmanager.cpp.i
 
 CMakeFiles/client.dir/src/database/dbmanager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/database/dbmanager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/src/database/dbmanager.cpp -o CMakeFiles/client.dir/src/database/dbmanager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/src/database/dbmanager.cpp -o CMakeFiles/client.dir/src/database/dbmanager.cpp.s
 
 CMakeFiles/client.dir/gui/mainwindow.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/gui/mainwindow.cpp.o: ../gui/mainwindow.cpp
 CMakeFiles/client.dir/gui/mainwindow.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/client.dir/gui/mainwindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/gui/mainwindow.cpp.o -MF CMakeFiles/client.dir/gui/mainwindow.cpp.o.d -o CMakeFiles/client.dir/gui/mainwindow.cpp.o -c /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/client.dir/gui/mainwindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/gui/mainwindow.cpp.o -MF CMakeFiles/client.dir/gui/mainwindow.cpp.o.d -o CMakeFiles/client.dir/gui/mainwindow.cpp.o -c /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.cpp
 
 CMakeFiles/client.dir/gui/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/gui/mainwindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.cpp > CMakeFiles/client.dir/gui/mainwindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.cpp > CMakeFiles/client.dir/gui/mainwindow.cpp.i
 
 CMakeFiles/client.dir/gui/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/gui/mainwindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/haha6/project-root/gui/mainwindow.cpp -o CMakeFiles/client.dir/gui/mainwindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/Desktop/lab/jiami/project-root/gui/mainwindow.cpp -o CMakeFiles/client.dir/gui/mainwindow.cpp.s
 
 # Object files for target client
 client_OBJECTS = \
@@ -164,7 +164,7 @@ client: /usr/lib/aarch64-linux-gnu/libGLX.so
 client: /usr/lib/aarch64-linux-gnu/libOpenGL.so
 client: /usr/lib/aarch64-linux-gnu/libQt6Core.so.6.2.4
 client: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -176,6 +176,6 @@ CMakeFiles/client.dir/clean:
 .PHONY : CMakeFiles/client.dir/clean
 
 CMakeFiles/client.dir/depend:
-	cd /home/parallels/Desktop/lab/haha6/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build /home/parallels/Desktop/lab/haha6/project-root/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/parallels/Desktop/lab/jiami/project-root/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build /home/parallels/Desktop/lab/jiami/project-root/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/client.dir/depend
 
