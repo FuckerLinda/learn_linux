@@ -161,6 +161,9 @@ void MainWindow::onSendButtonClicked() {
     if(!fileToHash.open(QIODevice::ReadOnly)) { return; }
     QByteArray fileContent = fileToHash.readAll();
     fileToHash.close();
+    
+    //【加密步骤1：计算哈希】
+    // 在文件发送前，使用SM3算法计算整个文件的哈希值，用于服务器端进行完整性校验。
     uint8_t hash_output[SM3_DIGEST_SIZE];
     sm3_digest((const uint8_t*)fileContent.constData(), fileContent.size(), hash_output);
     m_uploadFileHash = QByteArray((const char*)hash_output, SM3_DIGEST_SIZE);
@@ -191,6 +194,9 @@ void MainWindow::onReadyRead() {
         QByteArray line = socket->readLine().trimmed();
         qDebug() << "DEBUG: Received line from server:" << line;
         if (line.startsWith("PUBKEY:")) {
+        
+            //【加密步骤2：接收并解析服务器公钥】
+            // 从服务器发来的"PUBKEY:"消息中，提取出公钥的十六进制字符串。
             QByteArray pub_key_hex = line.mid(7);
             QByteArray pub_key_bytes = QByteArray::fromHex(pub_key_hex);
             qDebug() << "DEBUG: Received public key hex:" << pub_key_hex;
@@ -221,9 +227,15 @@ void MainWindow::onReadyRead() {
 void MainWindow::sendUploadRequest() {
     qDebug() << "DEBUG: sendUploadRequest() called.";
     if (!m_serverKeyReceived) { return; }
+    
+    //【加密步骤3：生成临时对称密钥】
+    // 使用rand_bytes为本次文件传输生成一个一次性的SM4会话密钥和初始化向量(IV)。
     rand_bytes(sm4_key, 16);
     rand_bytes(iv, 16);
     qDebug() << "DEBUG: Generated temporary SM4 key and IV.";
+    
+    //【加密步骤4：使用服务器公钥加密会话密钥】
+    // 调用sm2_encrypt，使用刚刚从服务器收到的公钥(m_server_sm2_key)来加密SM4会话密钥。
     uint8_t encrypted_sm4_key[256];
     size_t encrypted_sm4_key_len;
     if (sm2_encrypt(&m_server_sm2_key, sm4_key, sizeof(sm4_key), encrypted_sm4_key, &encrypted_sm4_key_len) != 1) {
@@ -232,6 +244,9 @@ void MainWindow::sendUploadRequest() {
         return;
     }
     qDebug() << "DEBUG: SM4 key encrypted with server's public key.";
+    
+    //【加密步骤5：构造并发送协议头】
+    // 构造不包含任何私钥的、新的安全协议头，并将其发送给服务器。
     QByteArray encrypted_sm4_key_hex = QByteArray((const char*)encrypted_sm4_key, encrypted_sm4_key_len).toHex();
     QByteArray iv_hex = QByteArray((const char*)iv, sizeof(iv)).toHex();
     QByteArray hash_hex = m_uploadFileHash.toHex();
@@ -270,6 +285,8 @@ void MainWindow::onBytesWritten(qint64 bytes) {
         qDebug() << "DEBUG_CLIENT: Reading next chunk from file.";
         QByteArray plain_chunk = fileToSend.read(65536);
         if (!plain_chunk.isEmpty()) {
+            //【加密步骤6：使用对称密钥加密文件内容】
+            // 使用临时的SM4密钥和IV，通过sm4_cbc_padding_encrypt函数加密文件块。
             uint8_t encrypted_chunk[65536 + 16];
             size_t encrypted_len;
             SM4_KEY sm4_enc_key_struct;
@@ -292,8 +309,14 @@ void MainWindow::onErrorOccurred(QAbstractSocket::SocketError error) {
 
 //====================================================================
 //
-//          ★ FileHistoryDialog 类的实现 (之前遗漏的部分)
-//
+/*          ★ FileHistoryDialog 类的实现 
+
+FileHistoryDialog是一个独立的对话框窗口 。作用：
+
+展示文件列表：当用户点击主界面上的“查看文件”按钮时，这个对话框会弹出。它会从数据库中获取服务器上所有可供下载的文件，并将它们以列表的形式展示给用户 。
+管理文件下载：它为用户提供了“下载”按钮。用户在列表中选择一个文件后，点击此按钮即可启动整个文件下载流程。
+封装下载逻辑：它内部封装了所有与文件下载相关的功能，包括创建新的网络连接、向服务器发送下载请求、接收加密数据、解密文件、保存到本地以及校验文件完整性等全部步骤 。
+*/
 //====================================================================
 
 FileHistoryDialog::~FileHistoryDialog() {
@@ -311,6 +334,7 @@ FileHistoryDialog::~FileHistoryDialog() {
         delete downloadFile;
     }
 }
+
 
 FileHistoryDialog::FileHistoryDialog(const QString &userUuid, QWidget *parent)
     : QDialog(parent), currentUserUuid(userUuid),
@@ -335,6 +359,7 @@ FileHistoryDialog::FileHistoryDialog(const QString &userUuid, QWidget *parent)
     connect(downloadBtn, &QPushButton::clicked, this, &FileHistoryDialog::onDownloadClicked);
 }
 
+//当用户点击“下载”按钮时被触发，是整个下载流程的起点。
 void FileHistoryDialog::onDownloadClicked() {
     if (downloadSocket && downloadSocket->isOpen()) {
         downloadSocket->disconnectFromHost();
@@ -362,7 +387,8 @@ void FileHistoryDialog::onDownloadClicked() {
         return;
     }
 
-    // 1. ★ 在发起下载前，为本次下载生成一对临时的SM2密钥
+    //【解密步骤1：生成临时的SM2密钥对】
+    // 在发起下载请求前，客户端为自己生成一对SM2密钥，用于接收服务器加密后的会话密钥。
     if (sm2_key_generate(&m_download_sm2_key) != 1) {
         QMessageBox::critical(this, "Crypto Error", "Failed to generate download key pair.");
         return;
@@ -384,8 +410,10 @@ void FileHistoryDialog::onDownloadClicked() {
     downloadSocket->connectToHost("localhost", 1234);
 }
 
+//当downloadSocket成功连接到服务器后被自动调用
 void FileHistoryDialog::onDownloadConnected() {
-    // 2. ★ 将自己的临时公钥发送给服务器
+    //【解密步骤2：发送包含公钥的下载请求】
+    // 将上一步生成的临时公钥，随下载请求一同发给服务器，以便服务器用它来加密。
     uint8_t pub_key_buf[65];
     sm2_point_to_uncompressed_octets(&m_download_sm2_key.public_key, pub_key_buf);
     QByteArray pub_key_hex = QByteArray((const char*)pub_key_buf, sizeof(pub_key_buf)).toHex();
@@ -398,12 +426,13 @@ void FileHistoryDialog::onDownloadConnected() {
     downloadSocket->write(request.toUtf8());
 }
 
+//当服务器有数据发送过来时被触发，是处理下载数据的核心
 void FileHistoryDialog::onDownloadReadyRead() {
     if (!headerReceived) {
         if (downloadSocket->canReadLine()) {
             QByteArray headerLine = downloadSocket->readLine();
             if (headerLine.startsWith("FILE_ENC:")) {
-                // 3. ★ 解析不含私钥的新文件头协议
+                // ... (解析服务器发来的FILE_ENC头部) ...
                 QRegularExpression re("FILE_ENC:(.+):(\\d+):(.+):(.+):(.+)");
                 QRegularExpressionMatch match = re.match(QString::fromUtf8(headerLine));
                 if (!match.hasMatch()) {
@@ -417,7 +446,8 @@ void FileHistoryDialog::onDownloadReadyRead() {
                 QByteArray iv_hex = match.captured(4).toLatin1();
                 m_receivedHashHex = match.captured(5);
 
-                // 4. ★ 用自己之前生成的临时私钥(m_download_sm2_key)来解密
+                //【解密步骤3：使用自己的私钥解密会话密钥】
+                // 使用之前为本次下载生成的私钥(m_download_sm2_key)，通过sm2_decrypt解密出会话密钥。
                 uint8_t sm4_key_raw[16];
                 size_t sm4_key_len;
                 if (sm2_decrypt(&m_download_sm2_key, (const uint8_t*)QByteArray::fromHex(encrypted_sm4_key_hex).constData(), QByteArray::fromHex(encrypted_sm4_key_hex).size(), sm4_key_raw, &sm4_key_len) != 1) {
@@ -440,11 +470,15 @@ void FileHistoryDialog::onDownloadReadyRead() {
     }
 }
 
+//负责解密文件内容
 void FileHistoryDialog::processEncryptedFileData(const QByteArray& data) {
     if (data.isEmpty() || !downloadFile || !downloadFile->isOpen()) return;
     bytesReceived += data.size();
     uint8_t decrypted_buf[65536 + 16];
     size_t decrypted_len;
+    
+    //【解密步骤4：使用会话密钥解密文件内容】
+    // 使用刚刚解密出的SM4密钥，通过sm4_cbc_padding_decrypt解密文件数据块。
     if (sm4_cbc_padding_decrypt(&sm4_dec_key, (uint8_t*)iv.constData(), (uint8_t*)data.constData(), data.size(), decrypted_buf, &decrypted_len) != 1) {
         qWarning() << "SM4 decryption failed during download.";
     } else {
@@ -456,7 +490,7 @@ void FileHistoryDialog::processEncryptedFileData(const QByteArray& data) {
     }
 }
 
-
+//当所有文件数据都接收完毕后被调用，进行收尾工作
 void FileHistoryDialog::completeDownload() {
     downloadFile->close();
     downloadProgress->setValue(downloadProgress->maximum());
@@ -468,6 +502,9 @@ void FileHistoryDialog::completeDownload() {
     QByteArray downloadedContent = downloadedFile.readAll();
     downloadedFile.close();
     uint8_t computed_hash[SM3_DIGEST_SIZE];
+    
+    //【解密步骤5：哈希校验】
+    // 文件接收完毕后，计算下载好的文件的SM3哈希，并与服务器发来的原始哈希比对。
     sm3_digest((const uint8_t*)downloadedContent.constData(), downloadedContent.size(), computed_hash);
     QString computedHashHex = QByteArray((const char*)computed_hash, sizeof(computed_hash)).toHex();
     QString message = QString("File '%1' downloaded successfully!").arg(currentDownloadFileName);
@@ -481,6 +518,7 @@ void FileHistoryDialog::completeDownload() {
     downloadSocket->disconnectFromHost();
 }
 
+//处理下载连接正常断开的情况
 void FileHistoryDialog::onDownloadDisconnected() {
     if (downloadFile && downloadFile->isOpen()) {
         downloadFile->close();

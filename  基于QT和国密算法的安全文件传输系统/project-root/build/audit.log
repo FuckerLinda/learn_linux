@@ -1,13 +1,13 @@
-2025-06-10 01:24:23 | Server starting up...
-2025-06-10 01:24:37 | Thread 281473310937056: Handling connection.
-2025-06-10 01:24:37 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473310937056.
-2025-06-10 01:24:37 | Sent public key to client ::ffff:127.0.0.1
-2025-06-10 01:24:37 | User [75d8a2cb-61f4-4708-8e89-6439dddd0707] attempting to UPLOAD file '2.txt' (13 bytes).
-2025-06-10 01:24:37 | SUCCESS: File '2.txt' from user [75d8a2cb-61f4-4708-8e89-6439dddd0707] received. Hash verification PASSED.
-2025-06-10 01:24:37 | Connection from ::ffff:127.0.0.1 closed on Thread 281473310937056.
-2025-06-10 01:24:48 | Thread 281473310937056: Handling connection.
-2025-06-10 01:24:48 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473310937056.
-2025-06-10 01:24:48 | Sent public key to client ::ffff:127.0.0.1
-2025-06-10 01:24:48 | User [75d8a2cb-61f4-4708-8e89-6439dddd0707] attempting to DOWNLOAD file '2.txt'.
-2025-06-10 01:24:48 | SUCCESS: File '2.txt' sent to user [75d8a2cb-61f4-4708-8e89-6439dddd0707].
-2025-06-10 01:24:50 | Connection from ::ffff:127.0.0.1 closed on Thread 281473310937056.
+2025-06-10 15:46:13 | Server starting up...
+2025-06-10 15:47:04 | Thread 281473327976416: Handling connection.
+2025-06-10 15:47:04 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473327976416.
+2025-06-10 15:47:04 | Sent public key to client ::ffff:127.0.0.1
+2025-06-10 15:47:04 | User [a626a63c-dcda-4315-af53-0f11be1b88ee] attempting to UPLOAD file '2.txt' (13 bytes).
+2025-06-10 15:47:04 | SUCCESS: File '2.txt' from user [a626a63c-dcda-4315-af53-0f11be1b88ee] received. Hash verification PASSED.
+2025-06-10 15:47:04 | Connection from ::ffff:127.0.0.1 closed on Thread 281473327976416.
+2025-06-10 15:47:22 | Thread 281473327976416: Handling connection.
+2025-06-10 15:47:22 | Connection from ::ffff:127.0.0.1 assigned to Thread 281473327976416.
+2025-06-10 15:47:22 | Sent public key to client ::ffff:127.0.0.1
+2025-06-10 15:47:22 | User [a626a63c-dcda-4315-af53-0f11be1b88ee] attempting to DOWNLOAD file '2.txt'.
+2025-06-10 15:47:22 | SUCCESS: File '2.txt' sent to user [a626a63c-dcda-4315-af53-0f11be1b88ee].
+2025-06-10 15:47:24 | Connection from ::ffff:127.0.0.1 closed on Thread 281473327976416.

@@ -9,6 +9,11 @@
 #include <QCryptographicHash>
 #include <gmssl/sm3.h> 
 
+// 【第一步：定义服务端“胡椒盐”】
+// 这个密钥只存在于代码中，绝对不能泄露。
+const static char* SERVER_PEPPER = "a_very_secret_and_long_string_for_admin_token_!@#$";
+
+
 // SM3加盐哈希函数
 QString DBManager::hashPasswordWithSalt(const QString &password, const QByteArray &salt) const {
     QByteArray data = salt + password.toUtf8();
@@ -70,6 +75,8 @@ bool DBManager::createConnection() {
     }
 
     QSqlQuery createTable(m_db);
+    // ★ 核心修正 1：修改CREATE TABLE语句
+    // 删除了 is_admin 列，添加了 admin_token 列
     bool success = createTable.exec(
         "CREATE TABLE IF NOT EXISTS users ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -77,7 +84,7 @@ bool DBManager::createConnection() {
         "password TEXT NOT NULL,"
         "salt TEXT NOT NULL,"
         "uuid TEXT UNIQUE NOT NULL,"
-        "is_admin INTEGER DEFAULT 0)" 
+        "admin_token TEXT DEFAULT NULL)" // ★ 删除了 is_admin，添加了 admin_token
     );
 
     if (!success) {
@@ -88,32 +95,37 @@ bool DBManager::createConnection() {
     if (!dbExists) {
         qDebug() << "Database created for the first time. Adding default admin user.";
         QString adminUsername = "a";
-        QString adminPassword = "a"; // Remember to change this in a production environment!
-
-        // Generate salt for the default admin
+        QString adminPassword = "a";
         QByteArray salt;
         salt.resize(16);
         for (int i = 0; i < 16; ++i) {
             salt[i] = QRandomGenerator::global()->generate() & 0xFF;
         }
 
-        // Hash the admin password with the generated salt
         QString hashedPassword = hashPasswordWithSalt(adminPassword, salt);
         QString adminUuid = generateUuid();
+        
+        // ★ 核心修正 2：为默认管理员生成并插入admin_token
+        QByteArray tokenData = adminUuid.toUtf8() + QByteArray(SERVER_PEPPER);
+        SM3_CTX ctx;
+        uint8_t hash[SM3_DIGEST_SIZE];
+        sm3_init(&ctx);
+        sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+        sm3_finish(&ctx, hash);
+        QString adminToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
 
         QSqlQuery insertAdmin(m_db);
-        insertAdmin.prepare("INSERT INTO users (username, password, salt, uuid, is_admin) "
+        // ★ 核心修正 3：修改INSERT语句以匹配新表结构
+        insertAdmin.prepare("INSERT INTO users (username, password, salt, uuid, admin_token) "
                             "VALUES (?, ?, ?, ?, ?)");
         insertAdmin.addBindValue(adminUsername);
         insertAdmin.addBindValue(hashedPassword);
         insertAdmin.addBindValue(salt.toHex());
         insertAdmin.addBindValue(adminUuid);
-        insertAdmin.addBindValue(1); // Set is_admin to true for the default admin
+        insertAdmin.addBindValue(adminToken); // ★ 插入计算出的令牌
 
         if (!insertAdmin.exec()) {
             qCritical() << "Failed to add default admin user:" << insertAdmin.lastError().text();
-            // This is a critical error, you might want to handle it differently
-            // or even stop the application if adding the admin is essential.
             return false;
         } else {
             qDebug() << "Default admin user 'a' added successfully with UUID:" << adminUuid;
@@ -137,7 +149,6 @@ bool DBManager::createConnection() {
 
     return true;
 }
-
 bool DBManager::recordFileTransfer(const QString &userUuid, 
                                  const QString &filename, 
                                  qint64 fileSize) {
@@ -245,17 +256,35 @@ bool DBManager::registerUser(const QString &username,
         salt[i] = QRandomGenerator::global()->generate() & 0xFF;
     }
 
+    // 【第二步：修改注册逻辑】
     uuid = generateUuid();
     QString hashedPassword = hashPasswordWithSalt(password, salt);
     
     QSqlQuery insertUser(m_db);
-    insertUser.prepare("INSERT INTO users (username, password, salt, uuid, is_admin) "
+    // 注意：这里的SQL语句需要提前修改，将 is_admin 替换为 admin_token
+    insertUser.prepare("INSERT INTO users (username, password, salt, uuid, admin_token) "
                       "VALUES (?, ?, ?, ?, ?)");
     insertUser.addBindValue(username);
     insertUser.addBindValue(hashedPassword);
     insertUser.addBindValue(salt.toHex());
     insertUser.addBindValue(uuid);
-    insertUser.addBindValue(isAdmin ? 1 : 0);
+
+    if (isAdmin) {
+        // 如果是管理员，则计算并绑定权限令牌
+        QByteArray tokenData = uuid.toUtf8() + QByteArray(SERVER_PEPPER);
+        
+        SM3_CTX ctx;
+        uint8_t hash[SM3_DIGEST_SIZE];
+        sm3_init(&ctx);
+        sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+        sm3_finish(&ctx, hash);
+
+        QString adminToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
+        insertUser.addBindValue(adminToken);
+    } else {
+        // 如果是普通用户，则绑定一个空值
+        insertUser.addBindValue(QVariant(QVariant::String)); // 插入NULL
+    }
     
     return insertUser.exec();
 }
@@ -281,6 +310,7 @@ bool DBManager::loginUser(const QString &username,
 }
 
 
+// 【第三步：修改管理员验证逻辑】
 bool DBManager::isAdminUser(const QString &uuid) {
     QMutexLocker locker(&m_mutex);
     if (!m_db.isOpen() && !createConnection()) {
@@ -289,10 +319,30 @@ bool DBManager::isAdminUser(const QString &uuid) {
     }
 
     QSqlQuery query(m_db);
-    query.prepare("SELECT is_admin FROM users WHERE uuid = ?");
+    // 注意：查询的字段从 is_admin 变为 admin_token
+    query.prepare("SELECT admin_token FROM users WHERE uuid = ?");
     query.addBindValue(uuid);
 
-    return query.exec() && query.next() && query.value(0).toBool();
+    if (!query.exec() || !query.next()) {
+        return false; // 用户不存在
+    }
+
+    QString storedToken = query.value(0).toString();
+    if (storedToken.isEmpty()) {
+        return false; // 令牌为空，是普通用户
+    }
+
+    // 在服务器端重新计算期望的令牌
+    QByteArray tokenData = uuid.toUtf8() + QByteArray(SERVER_PEPPER);
+    SM3_CTX ctx;
+    uint8_t hash[SM3_DIGEST_SIZE];
+    sm3_init(&ctx);
+    sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+    sm3_finish(&ctx, hash);
+    QString expectedToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
+
+    // 只有存储的令牌与实时计算出的期望令牌完全一致，才是管理员
+    return (storedToken == expectedToken);
 }
 
 bool DBManager::isFileOwner(const QString &filename, const QString &userUuid) {

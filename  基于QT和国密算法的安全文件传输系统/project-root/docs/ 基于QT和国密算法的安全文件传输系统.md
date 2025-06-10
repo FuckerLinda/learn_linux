@@ -168,47 +168,325 @@
    - 使用`QMutex`保证了在多线程环境下日志写入的原子性，防止日志内容交错混乱。
    - 日志文件`audit.log`保存在服务器可执行文件同目录下，记录了详细的操作信息，满足了审计要求。
 
-## 3. 系统改进与展望
+## 3. 答辩问题以及系统改进
 
-### 3.1 已完成的改进
+### 3.1.弄懂用户登录时，代码的执行逻辑
 
-（此部分可根据您实际的开发迭代过程填写，以下为示例）
+经代码审计，用户在客户端点击“登录”按钮后，代码（主要是`DBManager`类）的执行逻辑整理如下：
 
-- **功能完整性与用户体验优化**
+1. **初始化与连接数据库**:
+   - 程序启动时，`DBManager`的单例会被创建，其构造函数会调用`createConnection()`方法。
+   - `createConnection()`方法会打开或创建一个名为`users.db`的SQLite数据库文件。
+   - 如果数据库是首次创建，它会新建`users`表，并自动生成一个默认的管理员账户`'a'`，密码为`'a'`。
+2. **接收登录请求**:
+   - 客户端的`MainWindow::handleLogin`函数接收到用户输入的用户名和密码后，会调用`dbManager->loginUser(user, pass, uuid)`函数，将验证工作交由`DBManager`处理。
+3. **查询用户信息**:
+   - `DBManager::loginUser`函数接收到用户名和密码后，首先会准备一条SQL查询语句：`SELECT password, salt, uuid FROM users WHERE username = ?`。
+   - 它将用户输入的**用户名**作为参数，在`users`表中查找对应的记录。
+   - 如果查询失败，或者没有找到任何记录（`!query.next()`），则意味着用户名不存在，函数返回`false`，登录失败。
+4. **密码哈希比对**:
+   - 如果找到了用户记录，程序会从查询结果中取出三项数据：
+     - 存储在数据库中的、该用户的加密密码哈希值 (`storedHash`)。
+     - 存储在数据库中的、与该用户绑定的盐值 (`salt`)。
+     - 该用户的唯一标识符 (`uuid`)。
+   - 接着，程序调用内部的`hashPasswordWithSalt`函数。
+   - `hashPasswordWithSalt`函数会将本次用户在登录框中输入的**明文密码**，与从数据库中取出的**盐值**拼接在一起。
+   - 然后，它使用**SM3算法**对拼接后的数据进行哈希计算，生成一个新的哈希值`inputHash`。
+5. **返回验证结果**:
+   - 最后，`loginUser`函数会比对`inputHash`（根据用户本次输入计算出的哈希）和`storedHash`（预先存储在数据库中的哈希）是否完全一致。
+   - 如果两个哈希值完全相同，证明用户输入的密码正确，函数返回`true`，登录成功。
+   - 如果不一致，则证明密码错误，函数返回`false`，登录失败。
 
-  - **管理员注册机制**：引入了邀请码（`114514`）机制，使得管理员账户可以通过特定的注册流程创建，而不是硬编码在程序中。
+#### 总结涉及的主要后端函数：
 
-  - **数据库自动初始化**：首次启动时，系统会自动创建数据库文件并添加一个默认的管理员账户（用户名/密码: a/a），简化了初次部署的流程。
+- **`DBManager::loginUser(...)`**: 登录逻辑的核心，负责接收用户输入、查询数据库并比对密码。
+- **`DBManager::hashPasswordWithSalt(...)`**: 安全性的关键，负责执行“加盐哈希”操作，将明文密码转换为安全的哈希值以供比对。
 
-  - **登出功能**：在客户端主界面添加了“登出”按钮，允许用户安全地清除会话信息并返回登录页面，提升了使用的灵活性和安全性。
 
-  - **全局文件共享**：修改了文件历史记录的查看逻辑，从只能查看各自的上传记录，改进为所有用户都可以查看和下载服务器上的所有文件，实现了文件共享功能。
 
-- **服务器架构与性能提升**
+### 3.2.数据库存储管理员身份标识存在安全隐患
 
-  - **高并发处理能力**：将服务器从单线程模型重构为多线程模型 (`ThreadedServer`)。现在每个客户端连接都在一个独立的线程中处理，避免了连接之间的阻塞，极大地提高了服务器的并发处理能力和响应速度。相应的，主函数中也弃用了旧的 `newConnection` 连接处理方式。
-  - **核心功能增强**：为了支持文件完整性校验，在客户端添加了用于暂存上传文件哈希值的成员变量 (`m_uploadFileHash`)。
+直接在数据库中用明文标志位（is_admin是0还是1）来区分管理员存在安全隐患。一旦数据库被“脱库”（数据泄露），攻击者可以轻而易举地找出所有管理员，甚至通过修改标志位将普通用户提升为管理员，造成越权。
 
-- **健壮性与问题修复**
+那么我们完全可以借鉴密码加盐哈希的思想来加固管理员权限的验证。下面是一个更安全的、基于**“权限令牌”**的思路方案。
 
-  - **协议解析修复**：修复了服务器端一个关键的正则表达式逻辑错误。原有的贪婪匹配模式（`(.+)`）会导致在解析客户端发来的`UPLOAD_ENC`指令时无法正确提取文件名，现已通过非贪婪匹配（`(.+?)`）解决，确保了文件上传功能的正常运作。
+#### 更安全的管理员验证方案：“权限令牌” (Admin Token)
 
-  - **编译及运行时错误修复**：解决了开发过程中遇到的一系列问题，包括：
-  - 因GmSSL库API使用不当或版本差异引发的编译和链接错误。
-    - 解决了因内存未正确分配或访问失效指针导致的服务器段错误（闪退）问题。
-  - 修复了大量因C++类型不匹配、变量作用域不当等引发的编译时错误。
-  
-- **多线程强化改进**
-  - **多线程服务器**：将原有的单线程阻塞模型改进为多线程模型 (`ThreadedServer`)，每个客户端连接都在一个独立的线程中处理，提高了服务器的并发处理能力和响应速度。
+这个方案的核心思想是，我们不再存储一个简单的 `is_admin` 标志，而是为每一个管理员生成一个**不可伪造的、与用户身份绑定的加密令牌**。
 
-  - **数据库交互优化**：将数据库操作封装在`DBManager`类中，并使用`QMutex`对数据库写操作进行加锁，保证了多线程环境下的数据一致性。
+##### 实现思路
 
-- **安全协议重构与完善**
-  - **修正了核心安全漏洞**：将初始版本中“发送方传递私钥”的不安全设计，重构为基于非对称密码学原理的、更安全的密钥协商流程。
-  - **实现了安全的上传流程**：实现了“服务器分发公钥，客户端使用公钥加密会话密钥”的模式，确保了上传过程中私钥不离开服务器，网络信道无法被窃听。
-  - **实现了安全的下载流程**：实现了“客户端提供临时公钥，服务器使用该公钥加密会话密钥”的模式，确保了下载过程中，解密对称密钥的能力仅由请求下载的客户端持有。
-  - **解决了密码库API限制**：在重构过程中，通过对`sm2.h`头文件的深入分析，找到了之前遗漏的`sm2_point_from_octets`函数，成功解决了“无法从字节流加载公钥”这一关键技术难题，使得安全协议的实现成为可能。
+1. **定义一个服务端“胡椒盐” (Server-Side Pepper)** 
 
-### 3.2 未来可改进的方向
+   “盐”（Salt）是每个用户都不同的，而“胡椒盐”（Pepper）是整个服务器共享的一个秘密字符串，它**只存在于服务器代码中，从不存入数据库**。这是确保令牌安全的关键。
 
-- **更精细的访问控制**：可以实现基于文件级别的访问控制列表（ACL），允许文件所有者授权或拒绝其他特定用户下载其上传的文件。
+2. **修改数据库表结构** 
+
+   将`users`表中的`is_admin`字段替换为一个新的`admin_token`字段。
+
+   - **移除**: `is_admin INTEGER DEFAULT 0`
+   - **添加**: `admin_token TEXT DEFAULT NULL`
+
+3. **修改注册逻辑**
+
+   - 当一个**普通用户**注册时，`admin_token`字段被设为`NULL`或空字符串。
+   - 当一个**管理员**通过邀请码注册时，我们为他生成一个独特的令牌。令牌的计算方式为：`SM3(用户UUID + 服务端胡椒盐)`。然后将这个哈希结果存入`admin_token`字段。
+
+4. **修改管理员验证逻辑**
+
+   - 当需要验证一个用户是否为管理员时（例如在`isAdminUser`函数中），我们不再是查询一个标志位。
+   - 而是根据该用户的UUID，在服务器端**重新计算一遍**期望的令牌：`expected_token = SM3(用户UUID + 服务端胡椒盐)`。
+   - 然后从数据库中取出该用户存储的`admin_token`。
+   - **如果两者完全一致，则证明该用户是管理员**。如果数据库中的`admin_token`为空，或者与计算出的不一致，则为普通用户。
+
+##### 这个方案的安全性优势
+
+- **防篡改**：即使攻击者拿到了整个数据库，他也无法将一个普通用户提升为管理员。因为他不知道服务端的“胡椒盐”，所以他计算不出正确的`admin_token`来填入数据库。任何伪造的令牌在验证时都会失败。
+- **身份绑定**：令牌是与用户的UUID绑定的。攻击者不能把一个管理员的令牌直接复制给另一个用户，因为UUID不同，验证时计算出的期望令牌也不同。
+- **权限隐藏**：攻击者无法通过简单地查看`admin_token`字段来直接识别出谁是管理员，增加了分析的难度。
+
+##### 改进代码如下：
+
+```cpp
+// 在 dbmanager.cpp 文件顶部
+#include "dbmanager.h"
+// ... 其他 includes ...
+
+// 【第一步：定义服务端“胡椒盐”】
+const static char* SERVER_PEPPER = "a_very_secret_and_long_string_for_admin_token_!@#$";
+
+// ... 其他函数 ...
+
+// 【第二步：修改注册逻辑】
+bool DBManager::registerUser(const QString &username,
+                           const QString &password,
+                           QString &uuid,
+                           bool isAdmin) {
+    // ... (检查用户是否存在等逻辑不变) ...
+
+    uuid = generateUuid();
+    QString hashedPassword = hashPasswordWithSalt(password, salt);
+    
+    QSqlQuery insertUser(m_db);
+    // 注意：这里的SQL语句需要提前修改，将 is_admin 替换为 admin_token
+    insertUser.prepare("INSERT INTO users (username, password, salt, uuid, admin_token) "
+                      "VALUES (?, ?, ?, ?, ?)");
+    insertUser.addBindValue(username);
+    insertUser.addBindValue(hashedPassword);
+    insertUser.addBindValue(salt.toHex());
+    insertUser.addBindValue(uuid);
+
+    if (isAdmin) {
+        // 如果是管理员，则计算并绑定权限令牌
+        QByteArray tokenData = uuid.toUtf8() + QByteArray(SERVER_PEPPER);
+        
+        SM3_CTX ctx;
+        uint8_t hash[SM3_DIGEST_SIZE];
+        sm3_init(&ctx);
+        sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+        sm3_finish(&ctx, hash);
+
+        QString adminToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
+        insertUser.addBindValue(adminToken);
+    } else {
+        // 如果是普通用户，则绑定一个空值
+        insertUser.addBindValue(QVariant(QVariant::String)); // 插入NULL
+    }
+    
+    return insertUser.exec();
+}
+
+// 【第三步：修改管理员验证逻辑】
+bool DBManager::isAdminUser(const QString &uuid) {
+    QMutexLocker locker(&m_mutex);
+    if (!m_db.isOpen() && !createConnection()) {
+        qWarning() << "Failed to open database in isAdminUser";
+        return false;
+    }
+
+    QSqlQuery query(m_db);
+    // 注意：查询的字段从 is_admin 变为 admin_token
+    query.prepare("SELECT admin_token FROM users WHERE uuid = ?");
+    query.addBindValue(uuid);
+
+    if (!query.exec() || !query.next()) {
+        return false; // 用户不存在
+    }
+
+    QString storedToken = query.value(0).toString();
+    if (storedToken.isEmpty()) {
+        return false; // 令牌为空，是普通用户
+    }
+
+    // 在服务器端重新计算期望的令牌
+    QByteArray tokenData = uuid.toUtf8() + QByteArray(SERVER_PEPPER);
+    SM3_CTX ctx;
+    uint8_t hash[SM3_DIGEST_SIZE];
+    sm3_init(&ctx);
+    sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+    sm3_finish(&ctx, hash);
+    QString expectedToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
+
+    // 只有存储的令牌与实时计算出的期望令牌完全一致，才是管理员
+    return (storedToken == expectedToken);
+}
+
+
+
+bool DBManager::createConnection() {
+    if (m_db.isOpen()) {
+        m_db.close();
+    }
+
+    if (!QSqlDatabase::isDriverAvailable("QSQLITE")) {
+        qCritical() << "SQLite driver not available!";
+        return false;
+    }
+
+    QString dbPath = QCoreApplication::applicationDirPath() + "/users.db";
+    bool dbExists = QFileInfo::exists(dbPath);
+    m_db.setDatabaseName(dbPath);
+    
+    if (!m_db.open()) {
+        qCritical() << "Cannot open database:" << m_db.lastError().text();
+        return false;
+    }
+    
+    QSqlQuery enableForeignKeys(m_db);
+    if (!enableForeignKeys.exec("PRAGMA foreign_keys = ON")) {
+        qWarning() << "Failed to enable foreign keys";
+    }
+
+    QSqlQuery createTable(m_db);
+    // ★ 核心修正 1：修改CREATE TABLE语句
+    // 删除了 is_admin 列，添加了 admin_token 列
+    bool success = createTable.exec(
+        "CREATE TABLE IF NOT EXISTS users ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "username TEXT UNIQUE NOT NULL,"
+        "password TEXT NOT NULL,"
+        "salt TEXT NOT NULL,"
+        "uuid TEXT UNIQUE NOT NULL,"
+        "admin_token TEXT DEFAULT NULL)" // ★ 删除了 is_admin，添加了 admin_token
+    );
+
+    if (!success) {
+        qCritical() << "Failed to create table:" << createTable.lastError().text();
+        return false;
+    }
+    
+    if (!dbExists) {
+        qDebug() << "Database created for the first time. Adding default admin user.";
+        QString adminUsername = "a";
+        QString adminPassword = "a";
+        QByteArray salt;
+        salt.resize(16);
+        for (int i = 0; i < 16; ++i) {
+            salt[i] = QRandomGenerator::global()->generate() & 0xFF;
+        }
+
+        QString hashedPassword = hashPasswordWithSalt(adminPassword, salt);
+        QString adminUuid = generateUuid();
+        
+        // ★ 核心修正 2：为默认管理员生成并插入admin_token
+        QByteArray tokenData = adminUuid.toUtf8() + QByteArray(SERVER_PEPPER);
+        SM3_CTX ctx;
+        uint8_t hash[SM3_DIGEST_SIZE];
+        sm3_init(&ctx);
+        sm3_update(&ctx, (const uint8_t*)tokenData.constData(), tokenData.size());
+        sm3_finish(&ctx, hash);
+        QString adminToken = QByteArray((const char*)hash, SM3_DIGEST_SIZE).toHex();
+
+        QSqlQuery insertAdmin(m_db);
+        // ★ 核心修正 3：修改INSERT语句以匹配新表结构
+        insertAdmin.prepare("INSERT INTO users (username, password, salt, uuid, admin_token) "
+                            "VALUES (?, ?, ?, ?, ?)");
+        insertAdmin.addBindValue(adminUsername);
+        insertAdmin.addBindValue(hashedPassword);
+        insertAdmin.addBindValue(salt.toHex());
+        insertAdmin.addBindValue(adminUuid);
+        insertAdmin.addBindValue(adminToken); // ★ 插入计算出的令牌
+
+        if (!insertAdmin.exec()) {
+            qCritical() << "Failed to add default admin user:" << insertAdmin.lastError().text();
+            return false;
+        } else {
+            qDebug() << "Default admin user 'a' added successfully with UUID:" << adminUuid;
+        }
+    }
+
+    QSqlQuery createFileTable(m_db);
+    success = createFileTable.exec(
+        "CREATE TABLE IF NOT EXISTS file_history ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "user_uuid TEXT NOT NULL,"
+        "filename TEXT NOT NULL,"
+        "file_size INTEGER NOT NULL,"
+        "timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,"
+        "FOREIGN KEY(user_uuid) REFERENCES users(uuid))"
+    );
+
+    if (!success) {
+        qCritical() << "Failed to create file_history table";
+    }
+
+    return true;
+}
+```
+
+
+
+### 3.3.私钥存储安全问题
+
+是否存在这样一种风险：既然私钥在src/server/main.cpp中保存，那么黑客入侵服务器后，或许能通过反编译的方式获得源码中的私钥？
+
+原先以为代码中的`SM2_KEY g_server_sm2_key;`是永久设置了一个固定私钥，但回去研究后发现，每次启动服务器所生成的私钥都是变化并且存储于内存中的。
+
+考虑过使用PBE方案增强私钥安全性，不过经研究，发现其实无需在此方面再进行改进。因为既然黑客有能力攻击内存并获取您原先代码中的私钥，那么他同样有能力攻击使用了PBE方案后、加载到内存中的同一个私钥。
+
+不过，如果有需求，我们还是可以使用PBE。我们来对比一下两种方案的攻击场景：
+
+------
+
+#### 场景一：当前的代码方案（内存中生成临时密钥）
+
+- 优点
+  - **磁盘上无密钥**：服务器关机状态下，硬盘上没有任何密钥文件。黑客如果只是偷走了硬盘，将一无所获。
+- 致命风险
+  - **内存暴露窗口长**：私钥`g_server_sm2_key`从服务器启动的那一刻起，直到服务器关闭，在长达数天、数月甚至数年的运行时间里，都以**明文形式**完整地存在于内存中。
+  - **攻击方式**：黑客只需要在服务器**运行期间的任何一个时间点**成功入侵系统，然后执行一个内存转储（Memory Dump）操作，就可以**直接拿到当前会话的完整私钥**。
+
+#### 场景二：PBE方案（使用口令解密存储的私钥文件）
+
+- 优点
+  1. **保护了“静态的”密钥**：服务器的硬盘上存放的是一个**被加密过的私钥文件**。如果黑客只是入侵了文件系统，偷走了这个文件，没有启动口令，这个文件对他来说就是一堆无用的乱码。他无法用它来进行离线破解（因为PBE算法本身就能抵抗这类攻击）。这就抵御了一大类“静态数据泄露”的攻击。
+  2. **大大缩短了“解密凭证”的暴露窗口**：用于解密私钥文件的**启动口令**是整个系统中最关键的秘密。而这个口令只在服务器**启动的瞬间**被需要，程序用它解密完私钥后，就可以（也应该）立即从内存中**清除掉这个口令**。黑客即使进行内存转储，也极难捕捉到这个稍纵即逝的口令。而您当前方案的私钥，是**全程驻留在内存中**的。
+  3. **增加了“人为”的访问控制**：使用了PBE方案后，服务器无法被黑客轻易地重启。每次重启，都必须有一个知道口令的**管理员**在场进行交互式输入。这增加了一道物理和人为的安全屏障。
+- 风险
+  - 与当前方案类似，当服务器启动并解密后，私钥的明文**同样会存在于内存中**，同样面临内存转储攻击的风险
+
+**结论就是：** PBE方案并没有消除密钥在内存中使用时的风险，但它成功地防御了针对**静态存储**的攻击，并大大增加了攻击者获取解密凭证（口令）的难度，建立起了层层防御。对于需要长期、稳定提供服务的生产环境来说，这种额外的安全层是至关重要的，是一种工业级的安全实践。而对于课程项目，当前在内存中生成临时密钥的方案具备较高的安全性，已经足够了。
+
+##### 扩展学习：密钥派生函数 (KDF)
+
+如果我们简单地把口令进行一次SM3哈希，然后用得到的哈希值作为密钥去解密私钥文件，这是**不安全**的。
+
+因为像SM3这样的常规哈希算法速度极快，计算机一秒钟可以进行数十亿次运算。如果黑客偷走了您加密后的私钥文件，他可以进行“字典攻击”或“暴力破解”：他会尝试用一个包含亿万个常用口令的字典，依次计算每个口令的SM3哈希值，然后尝试用这个哈希值去解密您的文件。由于速度极快，您的口令可能在几分钟甚至几秒钟内就被破解。
+
+为了解决这个问题，密码学专家们设计了专门用于处理口令的“**密钥派生函数 (Key Derivation Function, KDF)**”，其中最经典的标准就是 **PBKDF2** (Password-Based Key Derivation Function 2)。
+
+可以把KDF理解为一个**“慢速的、加了佐料的、特制哈希函数”**。它的工作流程如下：
+
+1. **准备“佐料” - 盐 (Salt)**：
+   - 程序会先生成一长串**随机的、独一无二的字节**，这就是“盐”。
+   - 这个“盐”会和加密后的私钥文件**一起存储**起来，它不是秘密。
+   - **作用**：盐的存在保证了即使两个不同的管理员设置了完全相同的口令，他们最终派生出的密钥也是完全不同的。这可以有效抵御“彩虹表攻击”。
+2. **“慢炖” - 大量迭代 (Iterations)**：
+   - KDF算法会把**“口令”**和**“盐”**结合起来，然后进行一次哈希（例如SM3）。
+   - 但它不会就此停止，而是会把得到的哈希结果，**再进行一次哈希**。
+   - 然后把新结果**再进行一次哈希**……如此循环往复。
+   - 这个重复的次数，就是**迭代次数**，通常被设置为一个很大的值，比如**十万次、数十万次甚至更高**。
+   - **作用**：大量的迭代使得计算一个最终密钥需要消耗相当可观的CPU时间（例如几十到几百毫秒）。对于正常用户来说，启动时输入一次口令，等待半秒钟完全可以接受。但对于黑客来说，他每秒钟只能尝试寥寥几次，破解的成本变得极其高昂，从而有效抵御了暴力破解。
+3. **生成“值” - 最终密钥**:
+   - 经过成千上万次迭代后，最终得到的那个哈希结果，才会被用作一个安全的密钥（比如一个128位的SM4密钥）。
+
